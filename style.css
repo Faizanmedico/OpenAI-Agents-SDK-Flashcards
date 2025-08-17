@@ -1,0 +1,243 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #909cb4;
+}
+.container {
+  width: 90vw;
+  max-width: 62.5em;
+  position: relative;
+  margin: auto;
+  padding: 1em 0;
+}
+.container h1 {
+  text-align: center;
+  color: #363d55;
+  margin-bottom: 1em;
+}
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1.5em;
+  flex-wrap: wrap;
+}
+.filter-controls select, 
+.filter-controls button {
+  padding: 0.8em 1.2em;
+  border-radius: 0.4em;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+.filter-controls select {
+  background-color: rgb(189, 209, 187);
+  border: 1px solid #d0d0d0;
+}
+.filter-controls button {
+  background-color: #536085;
+  color: rgb(248, 241, 241);
+  cursor: pointer;
+}
+.add-flashcard-con {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.2em 1em;
+}
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.add-flashcard-con button {
+  font-size: 1em;
+  background-color: #5f6092;
+  color: #ffffff;
+  padding: 0.8em 1.2em;
+  font-weight: 500;
+  border-radius: 0.4em;
+}
+#card-con {
+  margin-top: 1em;
+}
+.question-container {
+  width: 90vw;
+  max-width: 34em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f0e8bc;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 3em 2em;
+  border-radius: 0.6em;
+  box-shadow: 0 1em 2em rgba(28, 0, 80, 0.1);
+  z-index: 10;
+}
+.question-container h2 {
+  font-size: 2.2em;
+  color: #363d55;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 11fr 1fr;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.error-con {
+  align-self: center;
+}
+#error {
+  color: #f0ebeb;
+  font-weight: 400;
+}
+.fa-xmark {
+  font-size: 1.4em;
+  background-color: #587ef4;
+  height: 1.8em;
+  width: 1.8em;
+  display: grid;
+  place-items: center;
+  color: #e77979;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-self: flex-end;
+}
+label {
+  color: #363d55;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+textarea, select {
+  width: 100%;
+  padding: 0.7em 0.5em;
+  border: 2px solid #e66c6c;
+  outline: none;
+  color: #414a67;
+  border-radius: 0.3em;
+  resize: none;
+  margin-bottom: 1.2em;
+}
+textarea:focus, select:focus {
+  border-color: #363d55;
+}
+#save-btn {
+  font-size: 1em;
+  background-color: #587ef4;
+  color: #ffffff;
+  padding: 0.6em 0;
+  border-radius: 0.3em;
+  font-weight: 600;
+  margin-top: 0.5em;
+}
+.card-list-container {
+  display: grid;
+  padding: 0.2em;
+  gap: 1.5em;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.card {
+  background-color: #bddfe2;
+  box-shadow: 0 0.4em 1.2em rgba(28, 0, 80, 0.08);
+  padding: 1.2em;
+  border-radius: 0.4em;
+  perspective: 1000px;
+  cursor: pointer;
+  height: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding: 1.2em;
+  top: 0;
+  left: 0;
+}
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.card-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+.question-div {
+  margin-bottom: 0.5em;
+  font-weight: 500;
+  color: #363d55;
+  text-align: center;
+  font-size: 1.1em;
+}
+.answer-div {
+  margin-top: 1em;
+  font-weight: 400;
+  color: #414a67;
+  text-align: justify;
+}
+.day-badge {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background-color: #587ef4;
+  color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 0.3em;
+  font-size: 0.8em;
+}
+.buttons-con {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+}
+.edit, .delete {
+  background-color: transparent;
+  padding: 0.5em;
+  font-size: 1.2em;
+  z-index: 3;
+}
+.edit {
+  color: #587ef4;
+}
+.delete {
+  color: #ff5353;
+}
+.hide {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .card-list-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em;
+  }
+}
+@media screen and (max-width: 450px) {
+  body {
+    font-size: 14px;
+  }
+  .card-list-container {
+    grid-template-columns: 1fr;
+    gap: 1.2em;
+  }
+  .filter-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+}
